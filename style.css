@@ -1,0 +1,177 @@
+:root {
+    --utter-primary: #00aeef;
+    --utter-bg: #ffffff;
+    --aus-primary: #071731;
+    --aus-accent: #00d2ff;
+    --aus-bg: #112240;
+    --transition-speed: 0.6s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+    height: 100vh;
+    background-color: #000;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+.side {
+    position: relative;
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: flex var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    padding: 2rem;
+    z-index: 1;
+}
+
+.side:hover {
+    flex: 1.5;
+    z-index: 2;
+    box-shadow: 0 0 50px rgba(0,0,0,0.5);
+}
+
+/* Utter Declutter Side */
+.side.utter {
+    background-color: var(--utter-bg);
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+}
+
+.side.utter .brand-header h1 {
+    color: var(--utter-primary);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.side.utter .brand-header p {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+/* Aus Investment Properties Side */
+.side.aus {
+    background-color: var(--aus-primary);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.side.aus .brand-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.side.aus .brand-header h1 {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.side.aus .accent-line {
+    width: 60px;
+    height: 4px;
+    background: var(--aus-accent);
+    margin: 1rem 0;
+}
+
+.side.aus .brand-header p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    font-weight: 400;
+}
+
+/* Widget Containers */
+.widget-container {
+    width: 100%;
+    max-width: 450px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 24px;
+    margin: 1.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.widget-container.chat {
+    height: 150px;
+}
+
+.widget-container:hover {
+    transform: translateY(-5px);
+}
+
+.side.utter .widget-container {
+    background: rgba(0, 174, 239, 0.05);
+    border: 1px solid rgba(0, 174, 239, 0.15);
+}
+
+.side.aus .widget-container {
+    background: rgba(0, 210, 255, 0.05);
+    border: 1px solid rgba(0, 210, 255, 0.2);
+}
+
+.placeholder-text {
+    opacity: 0.6;
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 20px;
+}
+
+.placeholder-text small {
+    display: block;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .side:hover {
+        flex: 1.2;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        overflow-y: auto;
+    }
+    .side {
+        min-height: 100vh;
+        flex: none;
+        width: 100%;
+    }
+    .side:hover {
+        flex: none;
+    }
+    body {
+        overflow-y: auto;
+    }
+}

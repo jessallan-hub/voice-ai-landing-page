@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice AI Demo | Utter Declutter & Aus Investment Properties</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Utter Declutter Side -->
+        <section class="side utter">
+            <div class="brand-header">
+                <h1>Utter Declutter</h1>
+                <p>Sydney's Premier Downsizing Experts</p>
+            </div>
+
+            <div class="widget-container" id="utter-voice-widget">
+                <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+                    <iframe src="https://iframes.ai/o/1766461376490x480369842284396540?color=07de14&icon="
+                        allow="microphone" style="width: 100%; height: 200px; border: none;"
+                        id="utterAssistantFrame"></iframe>
+                </div>
+                <script>
+                    const utterFrame = document.getElementById('utterAssistantFrame');
+                    utterFrame.addEventListener('load', () => {
+                        navigator.permissions.query({ name: 'microphone' })
+                            .then(result => {
+                                if (result.state === 'granted') {
+                                    console.log('Utter Declutter Microphone access granted');
+                                } else if (result.state === 'prompt') {
+                                    console.log('Utter Declutter: Microphone prompt pending');
+                                }
+                            });
+                    });
+                </script>
+            </div>
+
+            <!-- Utter Declutter Chat Widget -->
+            <script src="https://widgets.leadconnectorhq.com/loader.js"
+                data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+                data-widget-id="694a25c7000404134251b3f3">
+                </script>
+        </section>
+
+        <!-- Aus Investment Properties Side -->
+        <section class="side aus">
+            <div class="brand-header">
+                <h1>Aus Investment Properties</h1>
+                <div class="accent-line"></div>
+                <p>Australia's #1 Investment Property Portal</p>
+            </div>
+
+            <div class="widget-container" id="aus-voice-widget">
+                <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+                    <iframe src="https://iframes.ai/o/1766461180727x536725549145915400?color=f61804&icon="
+                        allow="microphone" style="width: 100%; height: 200px; border: none;"
+                        id="ausAssistantFrame"></iframe>
+                </div>
+                <script>
+                    const ausFrame = document.getElementById('ausAssistantFrame');
+                    ausFrame.addEventListener('load', () => {
+                        navigator.permissions.query({ name: 'microphone' })
+                            .then(result => {
+                                if (result.state === 'granted') {
+                                    console.log('Aus Investment Microphone access granted');
+                                } else if (result.state === 'prompt') {
+                                    console.log('Aus Investment: Microphone prompt pending');
+                                }
+                            });
+                    });
+                </script>
+            </div>
+
+            <!-- Aus Invest Chat Widget -->
+            <script src="https://widgets.leadconnectorhq.com/loader.js"
+                data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+                data-widget-id="694a121b000404aa584dbc3d">
+                </script>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
